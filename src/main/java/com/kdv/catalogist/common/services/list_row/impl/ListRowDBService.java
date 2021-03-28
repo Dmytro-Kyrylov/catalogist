@@ -21,7 +21,7 @@ public class ListRowDBService {
   public List<ListRowDto> getAll(Long listId) {
     return dsl.selectFrom(LIST_ROW)
         .where(LIST_ROW.LIST_ID.eq(listId))
-        .orderBy(LIST_ROW.CREATED_BY.desc())
+        .orderBy(LIST_ROW.CREATED_AT.desc())
         .fetchInto(ListRowDto.class);
   }
 
