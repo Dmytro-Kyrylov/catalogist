@@ -1,0 +1,28 @@
+logging:
+  level:
+    org.jooq.tools: DEBUG
+
+spring:
+  application:
+    name: Catalogist
+  profiles:
+    active: dev
+  flyway:
+    enabled: true
+  messages:
+    basename: i18n/messages
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  task:
+    execution:
+      thread-name-prefix: catalogist-t-
+    scheduling:
+      thread-name-prefix: catalogist-s-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogist
+    username: postgres
+    password: root
+    hikari:
+      pool-name: Catalogist-DB

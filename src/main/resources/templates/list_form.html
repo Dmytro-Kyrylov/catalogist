@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:replace="~{components/main_component::headerFragment}">Catalogist</title>
+</head>
+
+<body>
+<span th:replace="~{components/main_component::navigation}"></span>
+
+<div class="container">
+    <form method="post" class="mt-5" th:action="*{id} ? '/lists/update/' + *{id} : '/lists/create'" th:object="${list}">
+        <div class="form-group">
+            <label th:for="*{title}" th:text="#{lists.save.title}">Title</label>
+            <input type="text" class="form-control" th:field="*{title}" required>
+        </div>
+        <div class="form-group">
+            <label th:for="*{description}" th:text="#{lists.save.description}">Description</label>
+            <textarea class="form-control" rows="5" th:field="*{description}"></textarea>
+        </div>
+        <div th:if="${users}" class="form-group">
+            <label th:text="#{lists.save.users}">Users</label>
+            <th:block th:each="user : ${users}">
+                <input type="checkbox" name="relatedUserIds" th:value="${user.id}"/>
+                <label th:text="${user.username}"></label>
+            </th:block>
+        </div>
+        <button type="submit" class="btn btn-primary" th:text="#{lists.save.button}">Save</button>
+    </form>
+</div>
+
+<span th:replace="~{components/main_component::jsFragment}"></span>
+</body>
+
+</html>

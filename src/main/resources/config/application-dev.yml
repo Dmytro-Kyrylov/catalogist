@@ -1,0 +1,8 @@
+logging:
+  level:
+    ROOT: DEBUG
+    com.kdv.catalogist: DEBUG
+
+spring:
+  thymeleaf:
+    cache: false
