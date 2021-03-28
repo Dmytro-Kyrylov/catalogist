@@ -6,7 +6,7 @@ spring:
   application:
     name: Catalogist
   profiles:
-    active: dev
+    active: prod
   flyway:
     enabled: true
   messages:
@@ -21,8 +21,8 @@ spring:
     scheduling:
       thread-name-prefix: catalogist-s-
   datasource:
-    url: jdbc:postgresql://localhost:5432/catalogist
-    username: postgres
-    password: root
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
     hikari:
       pool-name: Catalogist-DB
