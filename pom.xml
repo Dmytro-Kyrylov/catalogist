@@ -19,9 +19,9 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <jooq.version>3.14.8</jooq.version>
 
-        <database.url>jdbc:postgresql://localhost:5432/catalogist</database.url>
-        <database.username>postgres</database.username>
-        <database.password>root</database.password>
+        <database.url>${JDBC_DATABASE_URL}</database.url>
+        <database.username>${JDBC_DATABASE_USERNAME}</database.username>
+        <database.password>${JDBC_DATABASE_PASSWORD}</database.password>
     </properties>
 
     <dependencies>
